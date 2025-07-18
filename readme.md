@@ -25,26 +25,26 @@ pip install moviepy
 project-folder/
 │
 ├── data/
-│   ├── 大數據專案小組第三十三次會議-20250717 0713-1.mp4
-│   └── 大數據專案小組第三十三次會議-20250717 0713-1.mp3  ← 輸出檔案
+│   ├── Filename.mp4  ← 輸入檔案
+│   └── Filename.mp3  ← 輸出檔案
 │
-├── extract_audio.py  ← 主程式
+├── mp4_to_mp3.py  ← 主程式
 └── readme.md
 ```
 
 ## 使用方法 🧑‍💻
 
-在 `extract_audio.py` 中指定要轉換的 MP4 檔案：
+在 `mp4_to_mp3.py` 中指定要轉換的 MP4 檔案：
 
 ```python
-input_video_path = "data//大數據專案小組第三十三次會議-20250717 0713-1.mp4"
-output_audio_path = "data//大數據專案小組第三十三次會議-20250717 0713-1.mp3"
+input_video_path = "data//Filename.mp4"
+output_audio_path = "data//Filename.mp3"
 ```
 
 然後執行：
 
 ```bash
-python extract_audio.py
+python mp4_to_mp3.py
 ```
 
 轉換完成後，MP3 音訊檔案將會輸出到你指定的路徑。
@@ -59,7 +59,3 @@ python extract_audio.py
 
 - [moviepy 官方文件](https://zulko.github.io/moviepy/)
 - [FFmpeg 官方網站](https://ffmpeg.org/)
-
----
-
-如需我協助產出完整 `extract_audio.py` 檔案或加上 CLI 介面選項，也可以再告訴我。
