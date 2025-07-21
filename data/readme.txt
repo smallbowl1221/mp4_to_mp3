@@ -1,0 +1,1 @@
+The data folder is used to store input and output files.

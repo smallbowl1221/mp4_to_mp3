@@ -1,61 +1,44 @@
-# MP4 to MP3 Audio Extractor 🎞️
+# MP4 轉 MP3 擷取器
 
-這個簡單的 Python 腳本可將指定的 `.mp4` 影片檔案轉換為 `.mp3` 音訊檔案。非常適合從會議記錄、演講、線上教學影片中提取純音訊內容。
+此 Python 腳本允許您從 MP4 視頻檔案中擷取音訊（MP3 格式），並可選擇透過指定開始與結束時間進行裁剪。
 
-## 功能說明 🧾
+## 需求
 
-- 讀取本地的 MP4 檔案
-- 使用 `moviepy` 套件提取音訊
-- 將音訊儲存為 MP3 格式
-- 自動關閉影片資源以節省記憶體
+- Python 3.x
+- `moviepy` 函式庫
 
-## 環境需求 📦
-
-請先安裝以下 Python 套件：
-
-```bash
+安裝所需的依賴套件：
+```
 pip install moviepy
 ```
 
-※ 若是初次使用 `moviepy`，它可能還會安裝 `ffmpeg`，並自動下載必要的執行檔。
+## 使用方法
 
-## 檔案結構 📂
+從命令列執行腳本：
 
 ```
-project-folder/
-│
-├── data/
-│   ├── Filename.mp4  ← 輸入檔案
-│   └── Filename.mp3  ← 輸出檔案
-│
-├── mp4_to_mp3.py  ← 主程式
-└── readme.md
+python mp4_to_mp3.py <input_file> [--output <output_file>] [--start hh:mm:ss] [--end hh:mm:ss]
 ```
 
-## 使用方法 🧑‍💻
+- `input`（必填）：輸入的 MP4 檔名，位於 `/data/` 目錄中。
+- `--output`（選填）：輸出的 MP3 檔名。若未提供，預設為 `<input_file>.mp3`。
+- `--start`（選填）：音訊剪輯的起始時間，格式為 `hh:mm:ss`。
+- `--end`（選填）：音訊剪輯的結束時間，格式為 `hh:mm:ss`。
 
-在 `mp4_to_mp3.py` 中指定要轉換的 MP4 檔案：
+## 範例
 
-```python
-input_video_path = "data//Filename.mp4"
-output_audio_path = "data//Filename.mp3"
+擷取完整音訊：
+```
+python mp4_to_mp3.py example.mp4
 ```
 
-然後執行：
-
-```bash
-python mp4_to_mp3.py
+擷取裁剪後的音訊：
+```
+python mp4_to_mp3.py example.mp4 --output output.mp3 --start 00:01:00 --end 00:02:30
 ```
 
-轉換完成後，MP3 音訊檔案將會輸出到你指定的路徑。
+## 注意事項
 
-## 注意事項 🛑
-
-- 檔案路徑需使用英文，避免因中文造成編碼錯誤。
-- 若遇到 `ffmpeg` 無法找到的錯誤，可參考 moviepy 文件手動安裝。
-- 建議使用 Python 3.7 以上版本以確保相容性。
-
-## 參考資源 📘
-
-- [moviepy 官方文件](https://zulko.github.io/moviepy/)
-- [FFmpeg 官方網站](https://ffmpeg.org/)
+- 所有檔案應放置於 `/data/` 目錄中。
+- 時間參數為選填，若未填寫，將擷取整段音訊。
+- 輸出檔案將儲存在 `/data/` 目錄內。
