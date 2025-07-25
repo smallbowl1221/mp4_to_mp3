@@ -17,7 +17,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     input_video_path = os.path.join("data",args.input) 
-    output_audio_path = os.path.join("data",args.output) if args.output!= "" else args.input.split()[0]+".mp3"
+    output_audio_path = os.path.join("data",args.output) if args.output!= "" else os.path.join("data",args.input.split(".")[0]+".mp3")
     start_time = args.start
     end_time = args.end
 
